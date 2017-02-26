@@ -4,6 +4,12 @@ body {
     padding:0;
 }
 
+head {
+    position:absolute; 
+    top:0; 
+    bottom:0;
+}
+
  #map {
     position:absolute; 
     top:0; 
