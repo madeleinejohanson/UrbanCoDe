@@ -34,14 +34,17 @@ map.on('load', function() {
         "type": "fill-extrusion",
         "source": "json-buildings",
             'paint': {
-                'fill-extrusion-color': '#aaa',
+                'fill-extrusion-color' : {
+                    'property': 'colour'
+                    'type': 'identity', 
+                }
                 'fill-extrusion-height': {
-                'type': 'identity',
-                'property': 'height'
+                    'type': 'identity',
+                    'property': 'height'
                 },
-            'fill-extrusion-base': {
-                'type': 'identity',
-                'property': 'min_height'
+                'fill-extrusion-base': {
+                    'type': 'identity',
+                    'property': 'base_height'
             },
             'fill-extrusion-opacity': .6
             }
