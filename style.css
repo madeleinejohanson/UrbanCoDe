@@ -1,30 +1,66 @@
-body { 
-       margin:0; 
-       padding:0; 
-} 
-
-#map { 
-        position:fixed; 
-        top:0; 
-        bottom:0; 
-        width:70%; 
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#menu {
-        position: absolute;
-        background: #fff;
-        padding: 10px;
-        font-family: 'Open Sans', sans-serif;
-    }
+body { 
+margin:0; 
+padding:0; 
+height: 100%;
+}
 
-title { 
-   position: absolute; 
-   top: 200px; 
-   left: 0; 
-   width: 100%;        
-        font-family: times, Times New Roman, times-roman, georgia, serif;
-        color: rgb(0, 0, 100);
-        font-size: 51px;
-        font-weight: bold;
-        background-color: rgba(0, 0, 255, 0.3);
-} 
+#map {
+position:absolute; 
+top:0; 
+bottom:0; 
+width:100%; 
+height: 100%;
+}
+
+content {
+width: 35.5%;
+height: 90%;
+background-color: #c2d4dd; 
+border: 5px solid #204156;
+margin: 1%;
+padding: 1%;
+font-family: 'Lato', sans-serif;
+float: right; 
+overflow: auto;
+text-align: center;
+}
+  
+shadow {
+width: 50%;
+float: left;
+}
+
+thermal {
+width: 50%;
+float: right;
+}
+
+h1 {
+position:absolute; 
+float:left;
+margin: 1%;
+padding: 1%;
+padding-left:1.5%;
+padding-right:1.5%;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 48px;
+background: rgba(255, 255, 255, 0.7);
+}
+
+button {
+position:absolute; 
+float:left;
+margin: 1%;
+top:12%;
+padding: 0.5%;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 32px;
+background: rgba(255, 255, 255, 0.7);
+
+}
