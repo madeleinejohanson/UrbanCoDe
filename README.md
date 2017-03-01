@@ -24,3 +24,4 @@ what html is needed
 show testing
 explicitly say what you are not doing
 eg workflows: exporting from gh, compatible with mapbox
+add images of gh - tool to be packaged soon
