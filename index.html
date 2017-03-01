@@ -27,12 +27,13 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
     map.addSource('json-buildings', {
                     'type': 'geojson',
-                    'data': './GeoJSON/test_2.GeoJSON'
+                    'data': './GeoJSON/test_upload.GeoJSON'
                 }),
     map.addLayer({
         "id": "3d-buildings",
         "type": "fill-extrusion",
         "source": "json-buildings",
+<<<<<<< HEAD
             'paint': {
                 'fill-extrusion-color' : {
                     'property': 'colour'
@@ -47,8 +48,23 @@ map.on('load', function() {
                     'property': 'base_height'
             },
             'fill-extrusion-opacity': .6
+=======
+           'paint': {
+                'fill-extrusion-color' : {
+                    'property': 'colour',
+                    'type': 'identity'
+                }
+                'fill-extrusion-height' : {
+                    'type': 'identity',
+                    'property': 'height'
+                },
+                'fill-extrusion-base' : {
+                    'type': 'identity',
+                    'property': 'base_height'
+                },
+                 'fill-extrusion-opacity': .6
+>>>>>>> origin/master
             }
-        
     });  
 });
 
