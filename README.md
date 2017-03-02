@@ -6,18 +6,34 @@ Continuing from this research, we will aid in the developmental 'UrbanPinboard.'
 The current research project, UrbanCoDe, aims to be an invaluable to the community and architects alike. With an aim to improve design culture and equality of information, design proposals can be presented to the public in a clear graphical format, engaging the wider community of Sydney in urban design outcomes and solutions. Creating a platform for informed community discussion, individuals actively engage in public issues and solutions, allowing  a glimpse into the psychology behind decision making processes. Aspects such as environment, transport connections and aesthetics can be judged for their function and form.  Design variables and their relationships to one another can be simulated and understood. This exploration into the capabilities of computational design showcases how we can algorithmically deal with urban space possibilities.
 <br><br>
 ###Project Progress 
-Stage one of the research progress requires showing geometry created in Rhino and Grasshopper in a dynamic website, in this case we are using Mapbox. Mapbox is a flexible mapping platform used in the development of many apps that require live data visualisations and directions in traffic. It sources its geographical data from Open Street Maps. A new feature in Mapbox is visualising buildings in 3D. 
+Stage one of the research progress requires showing geometry created in Rhino and Grasshopper in a dynamic website, in this case we are using Mapbox. Mapbox is a flexible mapping platform used in the development of many apps that require live data visualisations and directions in traffic. It sources its geographical data from Open Street Maps. A new feature in Mapbox is visualising buildings in 3D. <br>
 ![Alt text](/mapbox.jpg)
-
-how geoJSON works (attributes, features etc)
-what grasshopper needs
-what html is needed
-show testing
-explicitly say what you are not doing
-eg workflows: exporting from gh, compatible with mapbox
-add images of gh - tool to be packaged soon <br><br>
-
-
+It is through this feature that we can insert our own 3d geometries into Mapbox. Mapbox requires the format of the geometry be in geoJSON, a format that may represent a geometry (in this case a polygon), and a collection of features. These features can be read by the Mapbox API and used to visualise the geometry. We can control the geometries shape, colour, base height and extrusion height. <br>
+We do this by adding a layer in the <script> section of the HTML code
+```javascript    
+map.addLayer({
+        "id": "fromgrasshopper",
+        "type": "fill-extrusion",
+        "source": "json-buildings",
+           'paint': {
+                'fill-extrusion-color' : {
+                    'property': 'colour',
+                    'type': 'identity'
+                },
+                'fill-extrusion-height' : {
+                    'type': 'identity',
+                    'property': 'height'
+                },
+                'fill-extrusion-base' : {
+                    'type': 'identity',
+                    'property': 'base_height'
+                },
+                 'fill-extrusion-opacity': .6
+            }
+    });
+```
+<br>
+We can insert any geoJSON file into the code and it will display in Mapbox. However, generating this geoJSON file may prove challenging without the right tools available. Through Grasshopper, it is possible that a user can draw a geometry in Rhino, assign attributes and properties, have grasshopper then deconstruct the geometry, and write a geoJSON file so it can be reconstructed in Mapbox. This tool can later be packaged and uploaded to Food4Rhino as a Grasshopper plugin.
 ## Grasshopper Components
 Currently two Grasshopper components exist used for writing and reading GeoJSON.
 ### Polygon to GeoJSON 
@@ -50,4 +66,9 @@ Outputs Close Polygon Curve.
 #### Closed Brep (B)
 Outputs Closed Brep if the GeoJSON contains a property called 'height' with a numeric value.
 #### Colour (C)
-Outputs a colour value if the GeoJSON contains a property called 'colour'.
+Outputs a colour value if the GeoJSON contains a property called 'colour'. 
+<br>
+![Alt text](/testsite.png)
+<br><br>
+In our case, we are using Grasshopper to create a geoJSON that is able to specifically communicate with Mapbox and display geometries there for the purpose of UrbanPinboard. However, there are many other possible applications with this Grasshopper tool, for those that want to produce geoJSON files from Rhino and Grasshopper geometries. 
+
