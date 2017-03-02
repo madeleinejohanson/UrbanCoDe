@@ -20,7 +20,6 @@ Valules of properties.The list should be structured so that the first branch of 
 ##### GeoJSON (J)
 GeoJSON Feature Collection.
 
-<br>
 
 ### GeoJSON to Polygon
 ![Alt text](/JSONPolygon.png)
