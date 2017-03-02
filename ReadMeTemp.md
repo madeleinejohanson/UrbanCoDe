@@ -1,10 +1,10 @@
 ## Grasshopper Components
-Currently two Grasshopper components exsist used for writing and reading GeoJSON. 
+Currently two Grasshopper components exsist used for writing and reading GeoJSON.
 ### Polygon to GeoJSON 
 #### Polyline Curve (P)
-Polygon to convert to GeoJSON 
+Polygon to convert to GeoJSON.
 #### Key (K)
-Properties used to describe geoemtry
+Properties used to describe geoemtry.
 <br>
 To specify the height, base height and colour of the polygon on Mapbox, use the following keys:
 
@@ -23,10 +23,10 @@ GeoJSON Feature Collection.
 
 ### GeoJSON to Polygon
 #### GeoJSON (J)
-Input GeoJSON File
+Input GeoJSON File.
 #### Polyline Curve (P)
-Outputs Close Polygone Curve
+Outputs Close Polygone Curve.
 #### Closed Brep (B)
 Outputs Closed Brep if the GeoJSON contains a property called 'height' with a numeric value.
 #### Colour (C)
-Outputs a colour value if the GeoJSON contains a property called 'colour'
+Outputs a colour value if the GeoJSON contains a property called 'colour'.
