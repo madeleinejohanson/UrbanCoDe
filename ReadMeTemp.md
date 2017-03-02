@@ -14,17 +14,10 @@ To specify the height, base height and colour of the polygon on Mapbox, use the 
 Please note that the keys are case sensitive.
 
 #####Value(V)
-Associated values of properties.The list should be structured so that the first branch of data is associated with the first key. This allows unique values to be associated with multiple polygons.
-
-    
-
-
-
-
-
+Valules of properties.The list should be structured so that the first branch of data is associated with the first key. This allows unique values to be associated with multiple polygons.
 
 #####GeoJSON(J)
-GeoJSON Feature Collection containin.
+GeoJSON Feature Collection.
 
 <br>
 
