@@ -9,7 +9,7 @@ The current research project, UrbanCoDe, aims to be an invaluable to the communi
 Stage one of the research progress requires showing geometry created in Rhino and Grasshopper in a dynamic website, in this case we are using Mapbox. Mapbox is a flexible mapping platform used in the development of many apps that require live data visualisations and directions in traffic. It sources its geographical data from Open Street Maps. A new feature in Mapbox is visualising buildings in 3D. <br>
 ![Alt text](/mapbox.jpg)
 It is through this feature that we can insert our own 3d geometries into Mapbox. Mapbox requires the format of the geometry be in geoJSON, a format that may represent a geometry (in this case a polygon), and a collection of features. These features can be read by the Mapbox API and used to visualise the geometry. We can control the geometries shape, colour, base height and extrusion height. <br>
-We do this by adding a layer in the <script> section of the HTML code
+We do this by adding a layer in the script section of the HTML code
 ```javascript    
 map.addLayer({
         "id": "fromgrasshopper",
