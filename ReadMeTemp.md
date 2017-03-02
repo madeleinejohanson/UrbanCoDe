@@ -2,7 +2,7 @@
 ####Polygon to GeoJSON 
 #####Inputs:
 
-Polyline:
+#####Polyline:
 Key:
 Value:
 
