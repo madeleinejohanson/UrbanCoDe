@@ -1,7 +1,13 @@
 ###Grasshopper Components
+Currently two Grasshopper components exsist used for writing and reading GeoJSON. 
 ####Polygon to GeoJSON 
 #####Inputs:
-
+    Polyline Curve:
+    Key:
+    Value:
+    GeoJSON: 
+#####Outputs:
+    GeoJSON:
 #####Polyline:
 Key:
 Value:
