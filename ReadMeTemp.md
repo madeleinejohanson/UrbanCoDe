@@ -1,6 +1,7 @@
 ## Grasshopper Components
 Currently two Grasshopper components exsist used for writing and reading GeoJSON.
 ### Polygon to GeoJSON 
+![Alt text](/PolygonJSON.png)
 #### Polyline Curve (P)
 Polygon to convert to GeoJSON.
 #### Key (K)
@@ -22,6 +23,7 @@ GeoJSON Feature Collection.
 <br>
 
 ### GeoJSON to Polygon
+![Alt text](/JSONPolygon.png)
 #### GeoJSON (J)
 Input GeoJSON File.
 #### Polyline Curve (P)
