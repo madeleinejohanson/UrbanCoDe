@@ -5,7 +5,6 @@ Currently two Grasshopper components exsist used for writing and reading GeoJSON
     Polyline Curve:
     Key:
     Value:
-    GeoJSON: 
 #####Outputs:
     GeoJSON:
 #####Polyline:
