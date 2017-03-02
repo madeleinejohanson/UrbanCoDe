@@ -2,11 +2,11 @@
 Currently two Grasshopper components exsist used for writing and reading GeoJSON. 
 ####Polygon to GeoJSON 
 #####Inputs:
-    Polyline Curve:
-    Key:
-    Value:
+Polyline Curve:
+Key:
+Value:
 #####Outputs:
-    GeoJSON:
+GeoJSON:
 #####Polyline:
 Key:
 Value:
