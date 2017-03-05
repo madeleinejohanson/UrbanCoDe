@@ -73,4 +73,10 @@ Outputs a colour value if the GeoJSON contains a property called 'colour'.
 here is a case of geometry being created and exported from Grasshopper to Mapbox. The variables of geographical points, colour, base height and top height differ depending on the geometry.
 <br><br>
 In our case, we are using Grasshopper to create a geoJSON that is able to specifically communicate with Mapbox and display geometries there for the purpose of UrbanPinboard. However, there are many other possible applications with this Grasshopper tool, for those that want to produce geoJSON files from Rhino and Grasshopper geometries. 
+<br><br>
+##Visualisation of More Complex Geometries
+exporting a whole building with floor plates, windows and mullions into from gh to Mapbox with geoJSON<br>
+discovery and fixing of height bug <br>
+exported building <br>
+
 
