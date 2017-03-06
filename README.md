@@ -75,10 +75,19 @@ here is a case of geometry being created and exported from Grasshopper to Mapbox
 In our case, we are using Grasshopper to create a geoJSON that is able to specifically communicate with Mapbox and display geometries there for the purpose of UrbanPinboard. However, there are many other possible applications with this Grasshopper tool, for those that want to produce geoJSON files from Rhino and Grasshopper geometries. 
 <br><br>
 ##Visualisation of More Complex Geometries
-deconstruct/analyse brep for geojson conversion <br>
 exporting a whole building with floor plates, windows and mullions into from gh to Mapbox with geoJSON<br>
-discovery and fixing of height bug <br>
-exported building <br>
+why? blurb to represent a building in mapbox must be exported...want detailed representations etc <br><br>
+
+deconstruct/analyse brep for geojson conversion <br>
+explain component cluster made<br><br>
+
 merging geojson geometries bug <br>
-creation of merge component <br>
+FeatureCollections....can only handle one. when we merge data we need to get rid of (code)<br><br>
+
+exported building <br><br>
+
+creation of merge component <br><br>
+
+toggle map layers <br>
+easy representation, show multiple map configurations to clients, layers of building, etc 
 
