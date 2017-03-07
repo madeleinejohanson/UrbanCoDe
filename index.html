@@ -143,7 +143,7 @@ map.on('click', function (e) {
 
     var popup = new mapboxgl.Popup()
         .setLngLat(map.unproject(e.point))
-        .setHTML(feature.properties.ID)
+        .setHTML(feature.properties.tag)
         .addTo(map);
 
 // Use the same approach as above to indicate that the symbols are clickable
