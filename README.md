@@ -104,29 +104,30 @@ In our case, we are using Grasshopper to create a geoJSON that is able to specif
 We have created our own components for exporting GeoJSON from Grasshopper. We have managed to export entire buildings from Grasshopper to the website with floor plates, windows and mullions different colours identifying each.
 To place different buildings in the map, we simply add a layer containing the GeoJSON to be visualised. 
 ```javascript    
-map.addSource('json-buildings1', {
+map.addSource('json-buildings', {
                     'type': 'geojson',
-                    'data': './GeoJSON/test_upload1.GeoJSON'
+                    'data': './GeoJSON/test_upload.GeoJSON'
                 }),
-        map.addLayer({
-        'id': '3d-buildings',
-        'source': 'composite',
-        'source-layer': 'building',
-        'filter': ['==', 'extrude', 'true'],
-        'type': 'fill-extrusion',
-        'minzoom': 15,
-        'paint': {
-            'fill-extrusion-color': '#aaa',
-            'fill-extrusion-height': {
-                'type': 'identity',
-                'property': 'height'
-            },
-            'fill-extrusion-base': {
-                'type': 'identity',
-                'property': 'min_height'
-            },
-            'fill-extrusion-opacity': .6
-        }	
+    map.addLayer({
+        "id": "fromgrasshopper",
+        "type": "fill-extrusion",
+        "source": "json-buildings",
+           'paint': {
+                'fill-extrusion-color' : {
+                    'property': 'colour',
+                    'type': 'identity'
+                },
+                'fill-extrusion-height' : {
+                    'type': 'identity',
+                    'property': 'height'
+                },
+                'fill-extrusion-base' : {
+                    'type': 'identity',
+                    'property': 'base_height'
+                },
+                'fill-extrusion-opacity': .6
+            }
+    });	
 ```
 When different buildings are in different layers, we can toggle the visibility on and off. This allows easy representation, showing multiple map configurations to clients, layers of building, etc
 <br> insert gif of toggle <br>
