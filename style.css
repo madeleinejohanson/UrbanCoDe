@@ -106,3 +106,19 @@ color: #ffffff;
 #menu a.active:hover {
 background: #3074a4;
 }
+
+h2 {
+position:absolute; 
+float:left;
+margin: 1%;
+padding: 1%;
+padding-left:1.5%;
+padding-right:1.5%;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 20px;
+background: rgba(255, 255, 255, 0.7);
+}
+
+.mapboxgl-popup {
+    max-width: 25%;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;

@@ -36,6 +36,26 @@ map.on('load', function() {
                     'type': 'geojson',
                     'data': './GeoJSON/test_upload1.GeoJSON'
                 }),
+        map.addLayer({
+        'id': '3d-buildings',
+        'source': 'composite',
+        'source-layer': 'building',
+        'filter': ['==', 'extrude', 'true'],
+        'type': 'fill-extrusion',
+        'minzoom': 15,
+        'paint': {
+            'fill-extrusion-color': '#aaa',
+            'fill-extrusion-height': {
+                'type': 'identity',
+                'property': 'height'
+            },
+            'fill-extrusion-base': {
+                'type': 'identity',
+                'property': 'min_height'
+            },
+            'fill-extrusion-opacity': .6
+        }
+    });
     map.addLayer({
         "id": "fromgrasshopper",
         "type": "fill-extrusion",
@@ -77,26 +97,7 @@ map.on('load', function() {
             }
     });
     
-    map.addLayer({
-        'id': '3d-buildings',
-        'source': 'composite',
-        'source-layer': 'building',
-        'filter': ['==', 'extrude', 'true'],
-        'type': 'fill-extrusion',
-        'minzoom': 15,
-        'paint': {
-            'fill-extrusion-color': '#aaa',
-            'fill-extrusion-height': {
-                'type': 'identity',
-                'property': 'height'
-            },
-            'fill-extrusion-base': {
-                'type': 'identity',
-                'property': 'min_height'
-            },
-            'fill-extrusion-opacity': .6
-        }
-    });
+
 });
 
 var toggleableLayerIds = [ 'fromgrasshopper', 'fromgrasshopper2', '3d-buildings'];
@@ -130,6 +131,29 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     layers.appendChild(link);
 }
 
+// When a click event occurs near a polygon, open a popup at the location of
+// the feature, with description HTML from its properties.
+map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2', '3d-buildings'] });
+    if (!features.length) {
+        return;
+    }
+
+    var feature = features[0];
+    var feat = features.length;
+
+    var popup = new mapboxgl.Popup()
+        .setLngLat(map.unproject(e.point))
+        .setHTML(feature.properties.ID)
+        .addTo(map);
+
+// Use the same approach as above to indicate that the symbols are clickable
+// by changing the cursor style to 'pointer'.
+map.on('mousemove', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2', '3d-buildings'] });
+    map.getCanvas().style.cursor = feat ? 'pointer' : '';
+});
+});
 </script>
 <h1>
 UrbanCoDe
