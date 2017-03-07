@@ -133,7 +133,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 // When a click event occurs near a polygon, open a popup at the location of
 // the feature, with description HTML from its properties.
 map.on('click', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2', '3d-buildings'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2'] });
     if (!features.length) {
         return;
     }
@@ -149,7 +149,7 @@ map.on('click', function (e) {
 // Use the same approach as above to indicate that the symbols are clickable
 // by changing the cursor style to 'pointer'.
 map.on('mousemove', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2', '3d-buildings'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2'] });
     map.getCanvas().style.cursor = feat ? 'pointer' : '';
 });
 });
