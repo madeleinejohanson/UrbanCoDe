@@ -58,27 +58,27 @@ Please note that the keys are case sensitive.
 #### Value (V)
 Values of properties. The list should be structured so that the first branch of data is associated with the first key. This allows unique values to be associated with multiple polygons. <br>
 Example:<br>
-> height : 100
-> base_height : 0
-> colour : red
-> tag : building name
+> height : 100<br>
+> base_height : 0<br>
+> colour : red<br>
+> tag : building name<br>
 ##### GeoJSON (J)
 Produces a GeoJSON Feature Collection.
 
 
-###File Write
+### File Write
 Writes the produced GeoJSON Feature Collection to a file. <br>
 PICTURE
-####Content 
+#### Content 
 Plug in the results from the Polygon to GeoJSON component
-####File Path
+#### File Path
 Where the new file will be saved to.
-####File Name
+#### File Name
 What the new file will be called.
-####Activate
+#### Activate
 Connect a Boolean toggle to save the file
  
-###Merge GeoJSON to one file
+### Merge GeoJSON to one file
 If you have multiple polygon to geojson components and wish to merge them into one geojson file, plug the data streams into the GeoJSON Merge component. This creates one feature collection to write to file. You may want to do this so parts of the building express different qualities when rendering (eg: windows blue, mullions black, floor plates red)
 <br> PICTURE
 ### GeoJSON to Polygon
