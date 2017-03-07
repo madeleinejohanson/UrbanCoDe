@@ -112,9 +112,8 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 
     link.onclick = function (e) {
         var clickedLayer = this.textContent;
-        console.log(e)
-        // e.preventDefault();
-        // e.stopPropagation();
+         e.preventDefault();
+         e.stopPropagation();
 
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
 
