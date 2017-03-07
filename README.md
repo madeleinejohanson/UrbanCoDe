@@ -38,11 +38,13 @@ We can insert any geoJSON file into the code and it will display in Mapbox. Howe
 ## Grasshopper Components
 The grasshopper components we have created for writing and reading GeoJSON include:
 ### Brep to Polygon
-Takes in Breps, and deconstructs to a curve. Records the height and base_height of the brep for later use in the Polygon to GeoJSON component.<br>
-PICTURE
+Takes in Breps, and deconstructs to a curve. Records the height and base_height of the brep for later use in the Polygon to GeoJSON component.
+<br><br>
+![Alt text](/brepToPolygon.jpg)
+<br><br>
 ### Polygon to GeoJSON 
 Writes a polygon to a GeoJSON file, where keys can be defined. These keys will be picked up by MapBox and used to render the geometry in the website.
-![Alt text](/PolygonJSON.png)
+![Alt text](/polygontogeojson.png)
 #### Polyline Curve (P)
 Polygon or list of polygons to convert to GeoJSON.
 #### Key (K)
@@ -68,8 +70,10 @@ Produces a GeoJSON Feature Collection.
 
 
 ### File Write
-Writes the produced GeoJSON Feature Collection to a file. <br>
-PICTURE
+Writes the produced GeoJSON Feature Collection to a file.
+<br><br>
+![Alt text](/fileWrite.jpg)
+<br><br>
 #### Content 
 Plug in the results from the Polygon to GeoJSON component
 #### File Path
@@ -79,9 +83,11 @@ What the new file will be called.
 #### Activate
 Connect a Boolean toggle to save the file
  
-### Merge GeoJSON to one file
+### Merge GeoJSON
 If you have multiple polygon to geojson components and wish to merge them into one geojson file, plug the data streams into the GeoJSON Merge component. This creates one feature collection to write to file. You may want to do this so parts of the building express different qualities when rendering (eg: windows blue, mullions black, floor plates red)
-<br> PICTURE
+<br><br>
+![Alt text](/geojsonMerge.jpg)
+<br><br>
 ### GeoJSON to Polygon
 Converts a GeoJSON file to a geometry in Grasshopper
 ![Alt text](/JSONPolygon.png)
