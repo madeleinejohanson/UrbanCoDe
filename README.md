@@ -35,7 +35,7 @@ map.addLayer({
 ```
 We can insert any geoJSON file into the code and it will display in Mapbox. However, generating this geoJSON file may prove challenging without the right tools available. Through Grasshopper, it is possible that a user can draw a geometry in Rhino, assign attributes and properties, have grasshopper then deconstruct the geometry, and write a geoJSON file so it can be reconstructed in Mapbox. This tool can later be packaged and uploaded to Food4Rhino as a Grasshopper plugin.
 ## Grasshopper Components
-Currently two Grasshopper components exist used for writing and reading GeoJSON.
+The grasshopper components we have created for writing and reading GeoJSON.
 ### Polygon to GeoJSON 
 ![Alt text](/PolygonJSON.png)
 #### Polyline Curve (P)
@@ -67,6 +67,11 @@ Outputs Close Polygon Curve.
 Outputs Closed Brep if the GeoJSON contains a property called 'height' with a numeric value.
 #### Colour (C)
 Outputs a colour value if the GeoJSON contains a property called 'colour'. 
+
+### deconstruct/analyse brep for geojson conversion 
+
+###Merge GeoJSON to one file
+
 <br><br>
 ![Alt text](/testsite.png)
 <br><br>
@@ -74,7 +79,7 @@ here is a case of geometry being created and exported from Grasshopper to Mapbox
 <br><br>
 In our case, we are using Grasshopper to create a geoJSON that is able to specifically communicate with Mapbox and display geometries there for the purpose of UrbanPinboard. However, there are many other possible applications with this Grasshopper tool, for those that want to produce geoJSON files from Rhino and Grasshopper geometries. 
 <br><br>
-##Visualisation of More Complex Geometries
+##Use of Components in a Case Study
 exporting a whole building with floor plates, windows and mullions into from gh to Mapbox with geoJSON<br>
 why? blurb to represent a building in mapbox must be exported...want detailed representations etc <br><br>
 
