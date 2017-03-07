@@ -62,6 +62,7 @@ Example:<br>
 > base_height : 0<br>
 > colour : red<br>
 > tag : building name<br>
+
 ##### GeoJSON (J)
 Produces a GeoJSON Feature Collection.
 
