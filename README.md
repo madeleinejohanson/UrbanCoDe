@@ -1,5 +1,8 @@
 #UrbanCoDe
 UrbanCoDe aims to be an invaluable to the community and architects alike. Using the API of Mapbox, design proposals can be presented to the public in a clear graphical format, engaging the wider community of Sydney in urban design outcomes and solutions. Creating a platform for informed community discussion, individuals actively engage in public issues and solutions, allowing  a glimpse into the psychology behind decision making processes. Aspects such as environment, transport connections and aesthetics can be judged for their function and form.  Design variables and their relationships to one another can be simulated and understood. With an aim to improve design culture and equality of information, this exploration into the capabilities of computational design showcases how we can algorithmically deal with urban space possibilities. 
+
+<br>MORE STUFF HERE
+
 <br><br>
 ##Project Progress 
 Stage one of the research progress requires showing geometry created in Rhino and Grasshopper in a dynamic website, in this case we are using Mapbox. Mapbox is a flexible mapping platform used in the development of many apps that require live data visualisations and directions in traffic. It sources its geographical data from Open Street Maps. A new feature in Mapbox is visualising buildings in 3D. <br><br>

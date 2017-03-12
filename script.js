@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFkZWxlaW5lam9oYW5zb24iLCJhIjoiY2lzczduYzJ4MDZrODJucGh0Mm1xbmVxNCJ9.i7q4iT8FFgh_y5v4we5UhQ';
 var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v9',
-    center: [151.20609, -33.8658],
+    center: [151.08223, -33.8680],
     zoom: 15,
     pitch: 45,
     bearing: -17.6,
@@ -13,11 +13,11 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
     map.addSource('json-buildings', {
                     'type': 'geojson',
-                    'data': './GeoJSON/test_upload.GeoJSON'
+                    'data': './GeoJSON/homebush.GeoJSON'
                 }),
     map.addSource('json-buildings1', {
                     'type': 'geojson',
-                    'data': './GeoJSON/test_upload1.GeoJSON'
+                    'data': './GeoJSON/naz_building.GeoJSON'
                 }),
         map.addLayer({
         'id': '3d-buildings',
