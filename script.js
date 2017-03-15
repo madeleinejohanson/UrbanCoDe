@@ -13,11 +13,11 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
     map.addSource('json-buildings', {
                     'type': 'geojson',
-                    'data': './GeoJSON/homebush.geojson'
+                    'data': './GeoJSON/homebush.GeoJSON'
                 }),
     map.addSource('json-buildings1', {
                     'type': 'geojson',
-                    'data': './GeoJSON/test_upload1.geojson'
+                    'data': './GeoJSON/naz_building.GeoJSON'
                 }),
         map.addLayer({
         'id': '3d-buildings',
