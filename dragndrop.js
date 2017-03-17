@@ -14,7 +14,7 @@
     	}
     //puts it into html as a list
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-	 
+	var dropped_building = ''
 		 for (var i = 0; i < files.length; i++) {
 			var reader = new FileReader();
 			reader.readAsText(files[i]);
@@ -22,25 +22,28 @@
 
 				function readSuccess(evt) {
 					file_contents = evt.target.result;
+                	dropped_building = JSON.parse(file_contents);
+                	console.log(JSON.parse(file_contents)); //JSON.stringify(json)--> string
                 	
-                	console.log(file_contents);
                 	
-                	
-					$.ajax({
-        				type: 'POST',
-       					dataType: 'geojson',
-      					url: '',
-       					data: file_contents, 
-      							  success: function (ret) {
-       							   alert('AJAX successfully posted');          
-       					   }
-      });
+					// $.ajax({
+     //    				type: 'POST',
+     //   					dataType: 'geojson',     //  					url: '',
+     //   					data: file_contents, 
+     //  							  success: function (ret) {
+     //   							   alert('AJAX successfully posted');          
+     //   					   }
+     //  				});
 
-               	 map.addSource('dragndrop', {
+     			console.log(dropped_building['features'])
+               	map.addSource('dragndrop', {
                 		'type': 'geojson',
-                  		'data': 'file_contents'
-                	}),
- 				map.addLayer({
+                  		'data': {
+                  			"type":"FeatureCollection",
+                  			"features": dropped_building.features
+                  		}
+                	})
+				map.addLayer({
        					"id": "fromdragndrop",
        					"type": "fill-extrusion",
       					"source": "dragndrop",
@@ -59,8 +62,26 @@
                 			}
            				}
 				})
-				}
-		}}
+
+
+
+
+		//clear files? append list?
+}
+
+}
+
+		}
+
+function myFunction() {
+	document.getElementById("remove").style.color = "blue";
+	console.log(map)
+	map.removeLayer('fromdragndrop')
+	map.removeSource('dragndrop')
+
+	console.log('button clicked')
+}
+		
 
 function handleDragOver(evt) {
 	evt.stopPropagation();
@@ -72,3 +93,5 @@ function handleDragOver(evt) {
 var dropZone = document.getElementById('drop_zone');
 dropZone.addEventListener('dragover', handleDragOver, false);
 dropZone.addEventListener('drop', handleFileSelect, false);
+
+

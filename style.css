@@ -43,14 +43,27 @@ background: rgba(255, 255, 255, 0.7);
 }
 
 button {
-position:absolute; 
-float:left;
-margin: 1%;
-top:12%;
-padding: 0.5%;
-font-family: "Trebuchet MS", Helvetica, sans-serif;
-font-size: 32px;
-background: rgba(255, 255, 255, 0.7);
+width: 80%;
+height: 5%;
+margin: 5%;
+padding: 5%;
+float:center;
+margin: 10%;
+
+  background: #cb5f69;
+  background-image: -webkit-linear-gradient(top, #cb5f69, #d1737c);
+  background-image: -moz-linear-gradient(top, #cb5f69, #d1737c);
+  background-image: -ms-linear-gradient(top, #cb5f69, #d1737c);
+  background-image: -o-linear-gradient(top, #cb5f69, #d1737c);
+  background-image: linear-gradient(to bottom, #cb5f69, #d1737c);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 
 }
 
@@ -129,4 +142,8 @@ font-family: "Trebuchet MS", Helvetica, sans-serif;
 font-size: 20pt;
 color: #bbb;
 display: block;
+}
+
+#remove {
+
 }
