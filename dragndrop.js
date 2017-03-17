@@ -74,8 +74,6 @@
 		}
 
 function myFunction() {
-	document.getElementById("remove").style.color = "blue";
-	console.log(map)
 	map.removeLayer('fromdragndrop')
 	map.removeSource('dragndrop')
 
