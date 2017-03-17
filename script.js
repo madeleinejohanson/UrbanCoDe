@@ -11,14 +11,14 @@ var map = new mapboxgl.Map({
     container: 'map'
 });
 map.on('load', function() {
-    map.addSource('json-buildings', {
-                    'type': 'geojson',
-                    'data': './GeoJSON/homebush.GeoJSON'
-                }),
-    map.addSource('json-buildings1', {
-                    'type': 'geojson',
-                    'data': './GeoJSON/naz.GeoJSON'
-                }),
+    // map.addSource('json-buildings', {
+    //                 'type': 'geojson',
+    //                 'data': './GeoJSON/homebush.GeoJSON'
+    //             }),
+    // map.addSource('json-buildings1', {
+    //                 'type': 'geojson',
+    //                 'data': './GeoJSON/naz.GeoJSON'
+    //             }),
         map.addLayer({
         'id': '3d-buildings',
         'source': 'composite',
@@ -39,51 +39,51 @@ map.on('load', function() {
             'fill-extrusion-opacity': .6
         }
     });
-    map.addLayer({
-        "id": "fromgrasshopper",
-        "type": "fill-extrusion",
-        "source": "json-buildings",
-           'paint': {
-                'fill-extrusion-color' : {
-                    'property': 'colour',
-                    'type': 'identity'
-                },
-                'fill-extrusion-height' : {
-                    'type': 'identity',
-                    'property': 'height'
-                },
-                'fill-extrusion-base' : {
-                    'type': 'identity',
-                    'property': 'base_height'
-                },
-                 //'fill-extrusion-opacity': .6
-            }
-    });
-    map.addLayer({
-        "id": "fromgrasshopper2",
-        "type": "fill-extrusion",
-        "source": "json-buildings1",
-           'paint': {
-                'fill-extrusion-color' : {
-                    'property': 'colour',
-                    'type': 'identity'
-                },
-                'fill-extrusion-height' : {
-                    'type': 'identity',
-                    'property': 'height'
-                },
-                'fill-extrusion-base' : {
-                    'type': 'identity',
-                    'property': 'base_height'
-                },
-                 //'fill-extrusion-opacity': .6
-            }
-    });
+    // map.addLayer({
+    //     "id": "fromgrasshopper",
+    //     "type": "fill-extrusion",
+    //     "source": "json-buildings",
+    //        'paint': {
+    //             'fill-extrusion-color' : {
+    //                 'property': 'colour',
+    //                 'type': 'identity'
+    //             },
+    //             'fill-extrusion-height' : {
+    //                 'type': 'identity',
+    //                 'property': 'height'
+    //             },
+    //             'fill-extrusion-base' : {
+    //                 'type': 'identity',
+    //                 'property': 'base_height'
+    //             },
+    //              //'fill-extrusion-opacity': .6
+    //         }
+    // });
+    // map.addLayer({
+    //     "id": "fromgrasshopper2",
+    //     "type": "fill-extrusion",
+    //     "source": "json-buildings1",
+    //        'paint': {
+    //             'fill-extrusion-color' : {
+    //                 'property': 'colour',
+    //                 'type': 'identity'
+    //             },
+    //             'fill-extrusion-height' : {
+    //                 'type': 'identity',
+    //                 'property': 'height'
+    //             },
+    //             'fill-extrusion-base' : {
+    //                 'type': 'identity',
+    //                 'property': 'base_height'
+    //             },
+    //              //'fill-extrusion-opacity': .6
+    //         }
+    // });
     
 
 });
 
-var toggleableLayerIds = [ 'fromgrasshopper', 'fromgrasshopper2', '3d-buildings'];
+var toggleableLayerIds = ['3d-buildings']; //'fromgrasshopper', 'fromgrasshopper2',
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];

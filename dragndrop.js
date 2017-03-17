@@ -25,15 +25,6 @@
                 	dropped_building = JSON.parse(file_contents);
                 	console.log(JSON.parse(file_contents)); //JSON.stringify(json)--> string
                 	
-                	
-					// $.ajax({
-     //    				type: 'POST',
-     //   					dataType: 'geojson',     //  					url: '',
-     //   					data: file_contents, 
-     //  							  success: function (ret) {
-     //   							   alert('AJAX successfully posted');          
-     //   					   }
-     //  				});
 
                	map.addSource('dragndrop', {
                 		'type': 'geojson',
