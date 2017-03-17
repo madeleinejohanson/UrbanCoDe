@@ -35,7 +35,6 @@
      //   					   }
      //  				});
 
-     			console.log(dropped_building['features'])
                	map.addSource('dragndrop', {
                 		'type': 'geojson',
                   		'data': {
@@ -63,21 +62,26 @@
            				}
 				})
 
+				var coordinates = (dropped_building['features'][0]["geometry"]["coordinates"][0][0])
+				console.log(coordinates)
 
+				map.flyTo({
+					center:coordinates
 
-
-		//clear files? append list?
-}
-
-}
+				})
 
 		}
+
+
+}
+
+}
+
 
 function myFunction() {
 	map.removeLayer('fromdragndrop')
 	map.removeSource('dragndrop')
 
-	console.log('button clicked')
 }
 		
 
