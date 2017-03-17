@@ -17,7 +17,7 @@ map.on('load', function() {
     //             }),
     // map.addSource('json-buildings1', {
     //                 'type': 'geojson',
-    //                 'data': './GeoJSON/naz.GeoJSON'
+    //                 'data': './GeoJSON/rob_building.GeoJSON'
     //             }),
         map.addLayer({
         'id': '3d-buildings',
