@@ -126,10 +126,27 @@
 
 
 function removeButton() {
+  //remove map layer and source
 	map.removeLayer('fromdragndrop')
 	map.removeSource('dragndrop')
-  document.getElementById('list').innerHTML = "null";
-  console.log("removed list")
+  console.log("building removed")
+
+  //clear list
+  var output = []
+  document.getElementById('list').innerHTML = ""
+  console.log("list cleared")
+
+  //remove buttons
+  var menuID = document.getElementById('filter-group')
+  while(menuID.firstChild) {
+    menuID.removeChild(menuID.firstChild);
+}
+  console.log("buttons removed")
+
+  //clear hiddenFilters array
+  hiddenFilters = ["any"]
+  console.log("array cleared")
+
 }
 		
 
