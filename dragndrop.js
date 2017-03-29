@@ -1,3 +1,5 @@
+ var filterGroup = document.getElementById('filter-group');
+
  function handleFileSelect(evt) {
 	evt.stopPropagation();
 	evt.preventDefault();
@@ -14,8 +16,8 @@
     	}
     //puts it into html as a list
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-	var dropped_building = ''
-		 for (var i = 0; i < files.length; i++) {
+	  var dropped_building = ''
+		for (var i = 0; i < files.length; i++) {
 			var reader = new FileReader();
 			reader.readAsText(files[i]);
 			reader.onload = readSuccess; 
@@ -23,7 +25,7 @@
 				function readSuccess(evt) {
 					file_contents = evt.target.result;
                 	dropped_building = JSON.parse(file_contents);
-                	console.log(JSON.parse(file_contents)); //JSON.stringify(json)--> string
+                	//console.log(JSON.parse(file_contents)); //JSON.stringify(json)--> string
                 	
 
                	map.addSource('dragndrop', {
@@ -54,25 +56,80 @@
 				})
 
 				var coordinates = (dropped_building['features'][0]["geometry"]["coordinates"][0][0])
-				console.log(coordinates)
-
 				map.flyTo({
 					center:coordinates
 
 				})
+       
+        buttonVals = new Set([])
+
+        function tagGetter(feature){
+            tagVal = feature["properties"]["tag"]
+            buttonVals.add(tagVal) //set
+        }
+
+        dropped_building.features.forEach(tagGetter)
+
+        buttonMenu = Array.from(buttonVals) //iterator 
+
+
+            // Add checkbox and label elements for the layer.
+          selectedSet= new Set 
+            for (var i in buttonMenu) {
+            var input = document.createElement('input');
+            input.type = 'checkbox';
+            input.id = buttonMenu[i];
+            input.checked = true;
+            filterGroup.appendChild(input);
+
+            var label = document.createElement('label');
+            label.setAttribute('for', buttonMenu[i]);
+            label.textContent = buttonMenu[i];
+            filterGroup.appendChild(label);
+          
+
+
+          input.addEventListener('change', function(e) {
+
+            id = e.target.checked?e.target.id:0
+            if (id==0){
+              selectedSet.delete(e.target.id)
+            }else{
+              selectedSet.add(e.target.id)
+            }
+            hiddenElements = Array.from(selectedSet)
+            console.log(hiddenElements)
+          
+          hiddenFilters = ["any"]
+          hiddenElements.forEach((element) => {
+          hiddenFilters.push([
+            '==',
+            'tag',
+            element.toString()
+                ]);
+          });
+          console.log(JSON.stringify(hiddenFilters))
+          map.setFilter( 'fromdragndrop', hiddenFilters);
+            
+
+});
+        }
+    
+        }
 
 		}
 
 
 }
 
-}
 
 
-function myFunction() {
+
+function removeButton() {
 	map.removeLayer('fromdragndrop')
 	map.removeSource('dragndrop')
-
+  document.getElementById('list').innerHTML = "null";
+  console.log("removed list")
 }
 		
 
