@@ -8,7 +8,6 @@ body {
 margin:0; 
 padding:0; 
 height: 100%;
-overflow:hidden;
 }
 
 #map {
@@ -26,7 +25,6 @@ margin: 1%;
 padding: 1%;
 font-family: 'Lato', sans-serif;
 float: right; 
-overflow:hidden;
 text-align: center;
 
 }
@@ -249,6 +247,7 @@ display: block;
         color: #fff;
         float: right;
         padding-right: 25%;
+
 
     }
 
