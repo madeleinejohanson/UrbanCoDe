@@ -61,29 +61,6 @@
 
         })
        
-        // When a click event occurs near a polygon, open a popup at the location of
-      // the feature, with description HTML from its properties.
-      map.on('click', function (e) {
-      var features = map.queryRenderedFeatures(e.point, { layers: [ "fromdragndrop"] });
-       if (!features.length) {
-        return;
-      }
-
-    var feature = features[0];
-    var feat = features.length;
-
-    var popup = new mapboxgl.Popup()
-        .setLngLat(map.unproject(e.point))
-        .setHTML(feature.properties.tag)
-        .addTo(map);
-
-// Use the same approach as above to indicate that the symbols are clickable
-// by changing the cursor style to 'pointer'.
-map.on('mousemove', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: [ "fromdragndrop"] });
-    map.getCanvas().style.cursor = feat ? 'pointer' : '';
-});
-
         buttonVals = new Set([])
 
         function tagGetter(feature){
@@ -138,7 +115,7 @@ map.on('mousemove', function (e) {
 });
         }
     
-        })
+        }
 
     }
 
@@ -183,6 +160,3 @@ function handleDragOver(evt) {
 var dropZone = document.getElementById('drop_zone');
 dropZone.addEventListener('dragover', handleDragOver, false);
 dropZone.addEventListener('drop', handleFileSelect, false);
-
-
-
