@@ -1,65 +1,65 @@
  var filterGroup = document.getElementById('filter-group');
 
  function handleFileSelect(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
+  evt.stopPropagation();
+  evt.preventDefault();
 
     var files = evt.dataTransfer.files; // FileList object.
 
     // files is a FileList of File objects. List some properties.
     var output = [];
-    	for (var i = 0, f; f = files[i]; i++) {
-      		output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+      for (var i = 0, f; f = files[i]; i++) {
+          output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
             f.size, ' bytes, last modified: ',
             f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
             '</li>');
-    	}
+      }
     //puts it into html as a list
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-	  var dropped_building = ''
-		for (var i = 0; i < files.length; i++) {
-			var reader = new FileReader();
-			reader.readAsText(files[i]);
-			reader.onload = readSuccess; 
+    var dropped_building = ''
+    for (var i = 0; i < files.length; i++) {
+      var reader = new FileReader();
+      reader.readAsText(files[i]);
+      reader.onload = readSuccess; 
 
-				function readSuccess(evt) {
-					file_contents = evt.target.result;
-                	dropped_building = JSON.parse(file_contents);
-                	//console.log(JSON.parse(file_contents)); //JSON.stringify(json)--> string
-                	
+        function readSuccess(evt) {
+          file_contents = evt.target.result;
+                  dropped_building = JSON.parse(file_contents);
+                  //console.log(JSON.parse(file_contents)); //JSON.stringify(json)--> string
+                  
 
-               	map.addSource('dragndrop', {
-                		'type': 'geojson',
-                  		'data': {
-                  			"type":"FeatureCollection",
-                  			"features": dropped_building.features
-                  		}
-                	})
-				map.addLayer({
-       					"id": "fromdragndrop",
-       					"type": "fill-extrusion",
-      					"source": "dragndrop",
-           				'paint': {
-                			'fill-extrusion-color' : {
-                    		'property': 'colour',
-                    		'type': 'identity'
-                			},
-                			'fill-extrusion-height' : {
-                    			'type': 'identity',
-                    			'property': 'height'
-                			},
-                			'fill-extrusion-base' : {
-                    			'type': 'identity',
-                    			'property': 'base_height'
-                			}
-           				}
-				})
+                map.addSource('dragndrop', {
+                    'type': 'geojson',
+                      'data': {
+                        "type":"FeatureCollection",
+                        "features": dropped_building.features
+                      }
+                  })
+        map.addLayer({
+                "id": "fromdragndrop",
+                "type": "fill-extrusion",
+                "source": "dragndrop",
+                  'paint': {
+                      'fill-extrusion-color' : {
+                        'property': 'colour',
+                        'type': 'identity'
+                      },
+                      'fill-extrusion-height' : {
+                          'type': 'identity',
+                          'property': 'height'
+                      },
+                      'fill-extrusion-base' : {
+                          'type': 'identity',
+                          'property': 'base_height'
+                      }
+                  }
+        })
 
-				var coordinates = (dropped_building['features'][0]["geometry"]["coordinates"][0][0])
-				map.flyTo({
-					center:coordinates
+        var coordinates = (dropped_building['features'][0]["geometry"]["coordinates"][0][0])
+        map.flyTo({
+          center:coordinates
 
-				})
+        })
        
         // When a click event occurs near a polygon, open a popup at the location of
       // the feature, with description HTML from its properties.
@@ -140,7 +140,7 @@ map.on('mousemove', function (e) {
     
         })
 
-		}
+    }
 
 
 }
@@ -150,8 +150,8 @@ map.on('mousemove', function (e) {
 
 function removeButton() {
   //remove map layer and source
-	map.removeLayer('fromdragndrop')
-	map.removeSource('dragndrop')
+  map.removeLayer('fromdragndrop')
+  map.removeSource('dragndrop')
   console.log("building removed")
 
   //clear list
@@ -171,17 +171,18 @@ function removeButton() {
   console.log("array cleared")
 
 }
-		
+    
 
 function handleDragOver(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
-	evt.dataTransfer.dropEffect = 'copy'; 
+  evt.stopPropagation();
+  evt.preventDefault();
+  evt.dataTransfer.dropEffect = 'copy'; 
 }
 
 // dnd listeners.
 var dropZone = document.getElementById('drop_zone');
 dropZone.addEventListener('dragover', handleDragOver, false);
 dropZone.addEventListener('drop', handleFileSelect, false);
+
 
 
