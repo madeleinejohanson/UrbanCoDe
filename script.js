@@ -25,7 +25,6 @@ map.on('load', function() {
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 15,
         'paint': {
             'fill-extrusion-color': '#aaa',
             'fill-extrusion-height': {
