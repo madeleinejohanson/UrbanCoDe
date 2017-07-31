@@ -19,28 +19,28 @@ map.on('load', function() {
     //                 'type': 'geojson',
     //                 'data': './GeoJSON/rob_building.GeoJSON'
     //             }),
-    var draw = new MapboxDraw({
-    displayControlsDefault: false,
-    controls: {
-        polygon: true,
-        trash: true
-    }
-});
-map.addControl(draw);
+//     var draw = new MapboxDraw({
+//     displayControlsDefault: false,
+//     controls: {
+//         polygon: true,
+//         trash: true
+//     }
+// });
+// map.addControl(draw);
 
-var calcButton = document.getElementById('calculate');
-calcButton.onclick = function() {
-    var data = draw.getAll();
-    if (data.features.length > 0) {
-        var area = turf.area(data);
-        // restrict to area to 2 decimal points
-        var rounded_area = Math.round(area*100)/100;
-        var answer = document.getElementById('calculated-area');
-        answer.innerHTML = '<p><strong>' + rounded_area + '</strong></p><p>square meters</p>';
-    } else {
-        alert("Use the draw tools to draw a polygon!");
-    }
-};
+// var calcButton = document.getElementById('calculate');
+// calcButton.onclick = function() {
+//     var data = draw.getAll();
+//     if (data.features.length > 0) {
+//         var area = turf.area(data);
+//         // restrict to area to 2 decimal points
+//         var rounded_area = Math.round(area*100)/100;
+//         var answer = document.getElementById('calculated-area');
+//         answer.innerHTML = '<p><strong>' + rounded_area + '</strong></p><p>square meters</p>';
+//     } else {
+//         alert("Use the draw tools to draw a polygon!");
+//     }
+// };
 
 
         map.addLayer({
