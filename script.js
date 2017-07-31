@@ -19,6 +19,30 @@ map.on('load', function() {
     //                 'type': 'geojson',
     //                 'data': './GeoJSON/rob_building.GeoJSON'
     //             }),
+    var draw = new MapboxDraw({
+    displayControlsDefault: false,
+    controls: {
+        polygon: true,
+        trash: true
+    }
+});
+map.addControl(draw);
+
+var calcButton = document.getElementById('calculate');
+calcButton.onclick = function() {
+    var data = draw.getAll();
+    if (data.features.length > 0) {
+        var area = turf.area(data);
+        // restrict to area to 2 decimal points
+        var rounded_area = Math.round(area*100)/100;
+        var answer = document.getElementById('calculated-area');
+        answer.innerHTML = '<p><strong>' + rounded_area + '</strong></p><p>square meters</p>';
+    } else {
+        alert("Use the draw tools to draw a polygon!");
+    }
+};
+
+
         map.addLayer({
         'id': '3d-buildings',
         'source': 'composite',
@@ -114,26 +138,28 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 
 // When a click event occurs near a polygon, open a popup at the location of
 // the feature, with description HTML from its properties.
-map.on('click', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2'] });
-    if (!features.length) {
-        return;
-    }
+// map.on('click', function (e) {
+//     var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2'] });
+//     if (!features.length) {
+//         return;
+//     }
 
-    var feature = features[0];
-    var feat = features.length;
+//     var feature = features[0];
+//     var feat = features.length;
 
-    var popup = new mapboxgl.Popup()
-        .setLngLat(map.unproject(e.point))
-        .setHTML(feature.properties.tag)
-        .addTo(map);
+//     var popup = new mapboxgl.Popup()
+//         .setLngLat(map.unproject(e.point))
+//         .setHTML(feature.properties.tag)
+//         .addTo(map);
 
-// Use the same approach as above to indicate that the symbols are clickable
-// by changing the cursor style to 'pointer'.
-map.on('mousemove', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2'] });
-    map.getCanvas().style.cursor = feat ? 'pointer' : '';
-});
-});
+// // Use the same approach as above to indicate that the symbols are clickable
+// // by changing the cursor style to 'pointer'.
+// map.on('mousemove', function (e) {
+//     var features = map.queryRenderedFeatures(e.point, { layers: [ 'fromgrasshopper', 'fromgrasshopper2'] });
+//     map.getCanvas().style.cursor = feat ? 'pointer' : '';
+// });
+
+// });
+
 
 
